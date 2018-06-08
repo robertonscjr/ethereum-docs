@@ -17,6 +17,5 @@ sample_contract_partial_instance = sample_contract.new("Hello World!", deploy)
 
 sample_contract_instance = sample_contract.at(sample_contract_partial_instance.address)
 
-sample_contract_instance.method1()
-sample_contract_instance.method2("bleep bleep bloop!")
+sample_contract_instance.printParam()
 ```
