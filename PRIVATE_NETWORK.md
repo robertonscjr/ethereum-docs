@@ -4,4 +4,4 @@
 
 **start mining**: miner.start()
 
-**get etherbase balance**: web3.fromWei(eth.getBalance(eth.accounts[0]), "ether")
+**get etherbase balance**: web3.fromWei(eth.getBalance(eth.coinbase), "ether")
