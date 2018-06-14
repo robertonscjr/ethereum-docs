@@ -1,7 +1,9 @@
-**init**: geth --datadir="testnet" --ipcdisable --port 30301 --rpcport 8101 --networkid="1234" --nodiscover init CustomGenesis.json
+**init**: geth --datadir data init GENESIS.json
 
-**console**: geth --datadir="testnet" --ipcdisable --port 30301 --rpcport 8101 --networkid="1234" --nodiscover console 2>> testnet.log
+**bootnode**: bootnode -genkey bootnode.key; bootnode -nodekey bootnode.key
 
-**start mining**: miner.start()
+**interactive node**: geth --networkid {net_id} --bootnodes {bootnode_address} --datadir {path/to/data} --rpc --rpcapi="eth,net" console 2>> ~/interactive.log
 
-**get etherbase balance**: web3.fromWei(eth.getBalance(eth.coinbase), "ether")
+**miner node**: geth --networkid {net_id}  --bootnodes {bootnode_address} --port {node_port} --datadir minerdata --mine --minerthreads=1 --etherbase={miner_address}
+
+**start mining on console**: miner.start()
